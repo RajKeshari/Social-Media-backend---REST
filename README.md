@@ -143,7 +143,7 @@ The database schema includes tables for users, posts, comments, and likes. An SQ
 
 2. Install dependencies:
    ```sh
-   cd BreadcrumbsSocial-Media-backend-REST
+   cd Social-Media-backend-REST
    npm install
    ```
 
