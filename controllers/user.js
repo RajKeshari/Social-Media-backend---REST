@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { Op } = require('sequelize');
 
 exports.findPeople = async (req, res) => {
     const { query } = req.query;
@@ -6,12 +7,11 @@ exports.findPeople = async (req, res) => {
         const users = await User.findAll({
             where: {
                 username: {
-                    [Op.like]: `%${query}%`
+                    [Op.iLike]: `%${query}%`
                 }
-            },
-            collation: 'utf8_general_ci'
+            }
         });
-        res.json({ users });
+        res.status(201).json({ users });
     } catch (error) {
         res.status(500).json({ error: 'Error finding users' });
     }
